@@ -42,8 +42,14 @@ export function getPosts() {
   return postData;
 }
 
-export function getPost(slug: string): Post | undefined {
-  return postData.find((post) => {
+export function getPost(slug: string): Post {
+  const foundPost = postData.find((post) => {
     return post.slug === slug;
   });
+
+  if (!foundPost) {
+    throw new Error("Unable to find post");
+  }
+
+  return foundPost;
 }

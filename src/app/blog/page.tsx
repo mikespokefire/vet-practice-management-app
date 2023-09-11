@@ -14,6 +14,7 @@ export default function Blog() {
         {allPosts.map((post) => {
           return <li key={post.slug}><Link href={`/blog/${post.slug}`}>{post.title}</Link></li>
         })}
+        <li><Link href="/blog/missing-post">Missing blog post</Link></li>
       </ul>
     </main>
   )

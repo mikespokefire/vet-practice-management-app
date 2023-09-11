@@ -16,15 +16,6 @@ import { getPost } from "../postsData";
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const post = getPost(params.slug);
 
-  if (!post) {
-    return (
-      <main>
-        <h1>Post not found</h1>
-        <p>Sorry your post could not be found. It should handle this properly with an error handler though instead of inline. I should learn how that works</p>
-      </main>
-    )
-  }
-
   return (
     <main>
       <h1>{post.title}</h1>
