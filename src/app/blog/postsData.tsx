@@ -1,0 +1,49 @@
+type Post = {
+  id: number;
+  slug: string;
+  title: string;
+  body: string;
+}
+
+const postData: Post[] = [
+  {
+    id: 3,
+    slug: "3-third-post",
+    title: "Third blog post",
+    body: `
+      <p>First paragraph of third blog post</p>
+      <p>Second paragraph of third blog post</p>
+      <p>Third paragraph of third blog post</p>
+    `,
+  },
+  {
+    id: 2,
+    slug: "2-second-post",
+    title: "Second blog post",
+    body: `
+      <p>First paragraph of second blog post</p>
+      <p>Second paragraph of second blog post</p>
+      <p>Third paragraph of second blog post</p>
+    `,
+  },
+  {
+    id: 1,
+    slug: "1-first-post",
+    title: "First blog post",
+    body: `
+      <p>First paragraph of first blog post</p>
+      <p>Second paragraph of first blog post</p>
+      <p>Third paragraph of first blog post</p>
+    `,
+  },
+];
+
+export function getPosts() {
+  return postData;
+}
+
+export function getPost(slug: string): Post | undefined {
+  return postData.find((post) => {
+    return post.slug === slug;
+  });
+}
