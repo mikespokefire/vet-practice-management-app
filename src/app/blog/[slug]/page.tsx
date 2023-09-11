@@ -13,8 +13,8 @@ import { getPost } from "../postsData";
 //   ];
 // }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = getPost(params.slug);
+export default async function BlogPost({ params }: { params: { slug: string } }) {
+  const post = await getPost(params.slug);
 
   return (
     <main>

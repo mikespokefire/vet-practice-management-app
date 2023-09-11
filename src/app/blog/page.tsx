@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { getPosts } from "./postsData";
 
-export default function Blog() {
-  const allPosts = getPosts();
+export default async function Blog() {
+  const allPosts = await getPosts();
 
   return (
     <main>

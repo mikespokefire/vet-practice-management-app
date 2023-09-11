@@ -38,18 +38,26 @@ const postData: Post[] = [
   },
 ];
 
-export function getPosts() {
-  return postData;
+export async function getPosts(): Promise<Post[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(postData);
+    }, 3000);
+  });
 }
 
-export function getPost(slug: string): Post {
-  const foundPost = postData.find((post) => {
-    return post.slug === slug;
+export async function getPost(slug: string): Promise<Post> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const foundPost = postData.find((post) => {
+        return post.slug === slug;
+      });
+
+      if (foundPost) {
+        resolve(foundPost);
+      } else {
+        reject("Custom reject message");
+      }
+    }, 1000);
   });
-
-  if (!foundPost) {
-    throw new Error("Unable to find post");
-  }
-
-  return foundPost;
 }
